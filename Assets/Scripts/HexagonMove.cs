@@ -15,6 +15,15 @@ public class HexagonMove : MonoBehaviour
 
     private void Update()
     {
-        transform.RotateAround(transform.position, transform.up, Time.deltaTime * rotateSpeed);
+        transform.RotateAround(transform.position, transform.up, Time.deltaTime * rotateSpeed * -1f);
+        OutOfBounds();
+    }
+
+    void OutOfBounds()
+    {
+        if(transform.position.x < -10f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

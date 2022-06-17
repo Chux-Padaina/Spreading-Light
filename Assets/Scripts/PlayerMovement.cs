@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        objectToMove.transform.position = end;
         isMoving = false;
+        objectToMove.transform.position = end;
     }
 }
 
