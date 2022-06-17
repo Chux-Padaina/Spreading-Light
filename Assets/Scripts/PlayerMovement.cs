@@ -8,10 +8,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject destinationObject;
     [SerializeField] float jumpTime = 1.0f;
 
+    private bool isMoving = false;
+
 
     // input call function
     void OnJump(InputValue value)
     {
+        if (isMoving)
+        {
+            return;
+        }
         StartCoroutine(MoveOverSeconds(gameObject, destinationObject.transform.position, jumpTime));
     }
 
@@ -19,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // move from A to B in X seconds
     private IEnumerator MoveOverSeconds(GameObject objectToMove, Vector3 end, float seconds)
     {
+        isMoving = true;
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
         while (elapsedTime < seconds)
@@ -28,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         objectToMove.transform.position = end;
+        isMoving = false;
     }
 }
 
