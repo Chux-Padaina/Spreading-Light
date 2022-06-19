@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9f712e84f480b48b48fc4899a20ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 8149015381408564348, guid: 19a7fd0252f92a44d80adcf70d925495,
+  objectToSpawn: {fileID: 825257381133729177, guid: 55ccc40556c92884a9e90f004d11b8fb,
     type: 3}
   lineStart: {fileID: 3424615936510717396}
   lineEnd: {fileID: 3424615936298672162}

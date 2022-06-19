@@ -9,7 +9,12 @@ public class Spawner : MonoBehaviour
     public bool spawning = false;
     public float spawnFrequency = 5f;
     private float spawnTimer = 0f;
-     
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Spirit");
+    }
     private void Update()
     {
         spawnTimer += Time.deltaTime;
@@ -18,6 +23,7 @@ public class Spawner : MonoBehaviour
             Spawn();
             spawnTimer = 0f;
         }
+        DestroyIfPassed();
     }
 
     void Spawn()
@@ -30,5 +36,13 @@ public class Spawner : MonoBehaviour
             lineStart.position.z + zRange * UnityEngine.Random.value);
         GameObject spawnObject = Instantiate(objectToSpawn);
         spawnObject.transform.position = spawnLocation;
+    }
+
+    void DestroyIfPassed()
+    {
+        if(transform.position.z < player.transform.position.z - 10f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

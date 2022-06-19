@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject destinationObject;
     [SerializeField] float jumpTime = 1.0f;
 
-    private bool isMoving = false;
+    public bool isMoving = false;
 
+    public GameObject green;
+    public GameObject red;
+    public GameObject orange;
 
     // input call function
     void OnJump(InputValue value)

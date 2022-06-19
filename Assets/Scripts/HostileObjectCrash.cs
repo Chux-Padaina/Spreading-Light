@@ -6,8 +6,11 @@ public class HostileObjectCrash : MonoBehaviour
 {
     private Rigidbody body;
 
+    private GameManager gm;
+
     private void Start()
     {
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
         body = GetComponent<Rigidbody>();
     }
 
@@ -15,7 +18,9 @@ public class HostileObjectCrash : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Crash!!!!");
+            CinemachineShake.instance.ShakeCamera(3f, 0.3f);
+            gm.healthReduced();
+            Destroy(gameObject);
         }
     }
 }
